@@ -1,24 +1,29 @@
-import requests
+def main_menu():
+    print("Bienvenido al sistema de control de versiones.")
+    print("1. Crear nueva versión")
+    print("2. Mostrar versión actual")
+    print("3. Salir")
 
-# Reemplaza "TU_TOKEN_DE_ACCESO" con tu propio token de acceso personal
-headers = {
-    "Authorization": "Bearer TU_TOKEN_DE_ACCESO"
-}
+    choice = input("Seleccione una opción: ")
 
-# URL para crear un repositorio en tu cuenta de GitHub
-url = "https://api.github.com/user/repos"
+    if choice == "1":
+        crear_nueva_version()
+    elif choice == "2":
+        mostrar_version_actual()
+    elif choice == "3":
+        print("Saliendo del programa.")
+        exit()
+    else:
+        print("Opción inválida. Por favor, seleccione una opción válida.")
 
-# Datos para el nuevo repositorio
-data = {
-    "name": "nuevo-repositorio",
-    "description": "Descripción del nuevo repositorio"
-}
+def crear_nueva_version():
+    # Aquí iría el código para crear una nueva versión
+    print("Nueva versión creada exitosamente.")
 
-# Realiza la solicitud POST para crear el repositorio
-response = requests.post(url, headers=headers, json=data)
+def mostrar_version_actual():
+    # Aquí iría el código para mostrar la versión actual
+    print("Versión actual: 1.0")
 
-# Verifica el código de respuesta
-if response.status_code == 201:
-    print("Repositorio creado exitosamente.")
-else:
-    print("Error al crear el repositorio:", response.text)
+if __name__ == "__main__":
+    while True:
+        main_menu()
